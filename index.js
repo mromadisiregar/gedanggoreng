@@ -7,6 +7,8 @@ const textFilePath = 'file.txt';
 const telegramToken = '6873766343:AAErkuk9g_ea-IWXWYSXskVGVINDjR5iqhM';
 const chatId = '6705390884';
 
+// test push
+
 const sendMessage = async (message) => {
   axios
 		.post(
