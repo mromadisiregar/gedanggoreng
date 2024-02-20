@@ -39,8 +39,6 @@ const readAndSendMessages = async () => {
         }
       }
       console.log("Selesai kotbah");
-      // Memulai kembali mengirim pesan ketika selesai
-      sendMessageToTelegram();
     } catch (error) {
       console.error('Gagal mengirim pesan:', error);
     }
