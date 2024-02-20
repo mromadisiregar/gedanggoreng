@@ -30,13 +30,19 @@ const readAndSendMessages = async () => {
   try {
     const content = fs.readFileSync(textFilePath, 'utf-8');
     const sentences = content.split('.'); // You may need to adjust this based on your file format
-
-    for (const sentence of sentences) {
-      if (sentence.trim() !== '') {
-        await sendMessage(sentence.trim());
-        // console.log(sentence.trim());
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
+    try {
+      for (const sentence of sentences) {
+        if (sentence.trim() !== '') {
+          await sendMessage(sentence.trim());
+          // console.log(sentence.trim());
+          await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
+        }
       }
+      console.log("Selesai kotbah");
+      // Memulai kembali mengirim pesan ketika selesai
+      sendMessageToTelegram();
+    } catch (error) {
+      console.error('Gagal mengirim pesan:', error);
     }
   } catch (error) {
     console.error(`Error reading file: ${error.message}`);
