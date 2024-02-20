@@ -49,6 +49,10 @@ const readAndSendMessages = async () => {
   }
 };
 
+function run() {
+  setInterval(readAndSendMessages, 30000);
+};
+
 app.use(bodyParser.json()) // for parsing application/json
 app.use(
 	bodyParser.urlencoded({
@@ -58,7 +62,7 @@ app.use(
 
 //This is the route the API will call
 app.get("/", function(req, res) {
-	readAndSendMessages();
+	run();
 })
 
 // Finally, start our server
