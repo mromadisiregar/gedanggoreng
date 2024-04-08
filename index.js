@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = `${{ TOKEN }}`;
+const token = process.env.TOKEN;
 const bot = new TelegramBot(token, { polling: true });
-const chatId = `${{ CHATID }}`;
+const chatId = process.env.CHATID;
 
 const app = express();
 const router = express.Router();
@@ -15,7 +15,7 @@ router.post('/bot_notifikasi_cpanel', async (req, res) => {
   try {
     const formData = req.body;
     const receivedKey = formData.validation_key;
-    const validationKey = `${{ VALIDATIONKEY }}`;
+    const validationKey = process.env.VALIDATIONKEY;
     if (receivedKey !== validationKey) {
       res.status(403).send('Invalid validation key');
       return;
