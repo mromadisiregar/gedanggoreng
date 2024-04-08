@@ -3,6 +3,10 @@ const bodyParser = require('body-parser');
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = "${{TOKEN}}";
+console.log("---")
+console.log("${{TOKEN}}");
+console.log("${{shared.TOKEN}}");
+console.log("---");
 const bot = new TelegramBot(token, { polling: true });
 const chatId = "${{CHATID}}";
 
